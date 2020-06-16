@@ -12,6 +12,7 @@ Added threading. Now it faster. i think.
 
 3. edit main.py  
 Create a new app on "https://dev.twitch.tv/console/apps" and get your client_id and secret
+![alt text](https://github.com/lekdan49/py_twitch/blob/master/image/app.PNG?raw=true)
 >client_id = ""  
 >secret = ""
 
