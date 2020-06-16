@@ -4,6 +4,7 @@ import re
 import shutil
 import time
 import os
+from multiprocessing.pool import ThreadPool as Pool
 
 
 import requests
@@ -18,7 +19,6 @@ If a new video is available it will check if the video is already downloaded the
 
 client_id = ""
 secret = ""
-
 
 
 # get duration in readable format
@@ -140,10 +140,12 @@ def make_urls(data):
 
     return ts_url_list
 
+# use url from created urls instead
+
 
 def download(url, file_name, data):
     if url.ok:
-        with open(data + '/' + file_name + ".ts", 'wb') as out_file:
+        with open(data + '/' + file_name, 'wb') as out_file:
             shutil.copyfileobj(url.raw, out_file)
     elif url.status_code == 429:
         print("rate limited! Pausing for a minute! ")
@@ -152,6 +154,14 @@ def download(url, file_name, data):
     # if file does not exist skip
     elif url.status_code == 403:
         pass
+
+
+def schedule_downloads(file_name, url, data, headers, bar):
+    file_name = str(file_name)
+    url = requests.get(url, stream=True, headers=headers)
+    download(url, file_name, data)
+
+    bar.next()
 
 
 def start(urls, data, token):
@@ -163,15 +173,19 @@ def start(urls, data, token):
         'Client-ID': client_id
     }
 
+    pool_size = 12
+    pool = Pool(pool_size)
+
     for url in urls:
-        file_name = str(file_name)
-        url = requests.get(url, stream=True, headers=headers)
-        download(url, file_name, data)
+        file_name = (re.split('/', url))
+        file_name = file_name[5]
+        print(file_name)
+        pool.apply_async(schedule_downloads,
+                         (file_name, url, data, headers, bar))
+        # schedule_downloads(file_name, url, data, headers, bar)
 
-        file_name = int(file_name)
-        file_name += 1
-        bar.next()
-
+    pool.close()
+    pool.join()
     bar.finish()
 
 
