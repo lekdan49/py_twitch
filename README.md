@@ -10,9 +10,10 @@ Added threading. Now it faster. i think.
 
 >if on windows get build from here: https://ffmpeg.zeranoe.com/builds/
 
-3. edit main.py  
+3. register app on twitch  
 Create a new app on "https://dev.twitch.tv/console/apps" and get your client_id and secret
 ![alt text](https://github.com/lekdan49/py_twitch/blob/master/image/app.PNG?raw=true)
+edit main.py  
 >client_id = ""  
 >secret = ""
 
