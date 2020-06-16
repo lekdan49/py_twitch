@@ -6,7 +6,7 @@ Added threading. Now it faster. i think.
 1. clone repo
 >git clone https://github.com/lekdan49/py_twitch   
 
-2.download ffmpeg for your os and place in where you downloaded repository.   
+2.download ffmpeg for your os and place binary where you downloaded repository.   
 
 >if on windows get build from here: https://ffmpeg.zeranoe.com/builds/
 
