@@ -6,7 +6,7 @@ from modules.download import download_video, join_videos
 
 """
 Goal of this program is to download videos from a streamers channel.
-If a new video is available it will check if the video is already downloaded then download it.
+If a new video is available it will check if the video is already downloaded then download it. - WIP
 """
 
 client_id = " "
