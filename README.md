@@ -1,3 +1,8 @@
+
+## READ
+THIS IS DEAD.
+
+
 # py_twitch 
 This is a Twitch Vod downloader implemented in python.  
 Added threading. Now it faster. i think.  
@@ -21,9 +26,6 @@ edit main.py
 >python main.py
 
 
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 
 
