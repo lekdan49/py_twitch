@@ -9,8 +9,8 @@ Goal of this program is to download videos from a streamers channel.
 If a new video is available it will check if the video is already downloaded then download it.
 """
 
-client_id = ""
-secret = ""
+client_id = " "
+secret = "  "
 
 
 if __name__ == '__main__':
