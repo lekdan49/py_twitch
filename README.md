@@ -5,7 +5,7 @@ THIS IS DEAD.
 
 # py_twitch 
 This is a Twitch Vod downloader implemented in python.  
-Added threading. Now it faster. i think.  
+Added threading. Now it's faster. i think.  
 
 ## Usage
 1. clone repo
