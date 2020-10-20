@@ -1,6 +1,6 @@
 
 ## READ
-THIS IS DEAD.
+this works but you need to modify servers in .py as they may not be active anymore
 
 
 # py_twitch 
